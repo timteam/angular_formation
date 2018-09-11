@@ -9,7 +9,6 @@ import { UiModuleModule } from './ui-module/ui-module.module';
 import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 import { LoginModule } from './login/login.module';
 import { AppRoutingModule } from './app-routing.module';
-import { PrestationModule } from './prestation/prestation.module';
 import { Router } from '@angular/router';
 
 @NgModule({
@@ -20,7 +19,6 @@ import { Router } from '@angular/router';
     BrowserModule,
     UiModuleModule,
     LoginModule,
-    PrestationModule,
     NgbModule.forRoot(),
     AppRoutingModule,
     PageNotFoundModule,

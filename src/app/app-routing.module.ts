@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { ListPrestationComponent } from './prestation/containers/list-prestation/list-prestation.component';
-import { PageNotFoundComponent } from './page-not-found/containers/page-not-found/page-not-found.component';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
 const appRoutes: Routes = [
   {
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'
+  },
+  {
+    path: 'prestations',
+    loadChildren: './prestation/prestation.module#PrestationModule',
   }
 ];
 
@@ -15,7 +17,8 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: false }
+      { enableTracing: false ,
+      preloadingStrategy: PreloadAllModules}
     )
   ],
   declarations: []
