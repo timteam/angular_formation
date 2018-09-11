@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { UiModuleModule } from './ui-module/ui-module.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { UiModuleModule } from './ui-module/ui-module.module';
   ],
   imports: [
     BrowserModule,
-    UiModuleModule
+    UiModuleModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
