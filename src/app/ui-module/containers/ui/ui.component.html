@@ -1,26 +1,28 @@
 <header class="fixed-top">
-header content
+  <app-header></app-header>
 </header>
 
 <main>
 
   <div class="shadow position-fixed">
+
   </div>
 
   <aside>
     <div class="scroller">
-      menu navigation
+      <app-nav></app-nav>
     </div>
   </aside>
 
   <div class="page">
 
     <div class="contents">
-    Contenu page
+      <router-outlet></router-outlet>
+      <!-- Routed views go here -->
     </div>
 
     <footer>
-      content footer
+      <app-footer></app-footer>
     </footer>
   </div>
 
