@@ -11,7 +11,7 @@ import { LoginModule } from './login/login.module';
 import { AppRoutingModule } from './app-routing.module';
 import { Router } from '@angular/router';
 
-import { registerLocaleData } from '@angular/common';
+import { registerLocaleData, CurrencyPipe } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 
 registerLocaleData(localeFr, 'fr');
@@ -28,7 +28,7 @@ registerLocaleData(localeFr, 'fr');
     AppRoutingModule,
     PageNotFoundModule,
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'fr' }],
+  providers: [{ provide: LOCALE_ID, useValue: 'fr' }, CurrencyPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {
