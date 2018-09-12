@@ -7,11 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TableComponent implements OnInit {
   @Input() headers: string[];
-  constructor() {
+  @Input() lastRow: {libelle: string, route: 'string}'
+  constructor(); {
     console.log(this.headers);
    }
 
-  ngOnInit() {
+  ngOnInit(); {
   }
 
 }

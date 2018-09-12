@@ -1,0 +1,32 @@
+<form #form="ngForm">
+    <div class="form-group">
+      <label for="typePresta">Type de prestation</label>
+      <input [(ngModel)]="newItem.type_presta" type="text" class="form-control" id="typePresta" required minlength="4">
+    </div>
+    <div class="form-group">
+      <label for="client">Client</label>
+      <input [(ngModel)]="newItem.type_client" type="text" class="form-control" id="client">
+    </div>
+    <div class="form-group">
+      <label for="nbj">Nombre de jours</label>
+      <input [(ngModel)]="newItem.nb_jours" type="text" class="form-control" id="nbj">
+    </div>
+    <div class="form-group">
+      <label for="tjm">Tjm HT</label>
+      <input [(ngModel)]="newItem.tjm_ht" type="text" class="form-control" id="tjm">
+    </div>
+    <div class="form-group">
+      <label for="tva">Taux TVA</label>
+      <input [(ngModel)]="newItem.taux_tva" type="text" class="form-control" id="tva">
+    </div>
+    <div class="form-group">
+      <label for="state">Statut</label>
+      <select [(ngModel)]="newItem.state" class="form-control" id="state">
+        <option [value]="state" *ngFor="let state of states">
+          {{state}}
+        </option>
+      </select>
+    </div>
+
+    <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
+  </form>

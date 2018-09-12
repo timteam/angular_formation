@@ -7,8 +7,11 @@
             </tr>
           </thead>
           <tbody>
-           <ng-content></ng-content>
+           <ng-content select=".table-body"></ng-content>
           </tbody>
+          <div>
+            <a [routerLink]="[lastRow.route]">{{lastRow.libelle}}</a>
+          </div>
         </table>
   </div>
 </div>

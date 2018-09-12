@@ -10,6 +10,7 @@ import { Prestation } from '../../../shared/models/mprestation';
 export class ListPrestationComponent implements OnInit {
   public collection: Prestation[];
   public prestaHeaders: string[];
+  public addPresta = {libelle: 'Add prestation', route: '/prestations/add'};
   constructor(
     private prestationApiService: PrestationApiService
   ) { }
