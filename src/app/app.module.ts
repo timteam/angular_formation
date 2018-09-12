@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 
 // External libraries
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -10,6 +10,11 @@ import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 import { LoginModule } from './login/login.module';
 import { AppRoutingModule } from './app-routing.module';
 import { Router } from '@angular/router';
+
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+
+registerLocaleData(localeFr, 'fr');
 
 @NgModule({
   declarations: [
@@ -23,7 +28,7 @@ import { Router } from '@angular/router';
     AppRoutingModule,
     PageNotFoundModule,
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'fr' }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
