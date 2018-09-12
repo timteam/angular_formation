@@ -15,4 +15,8 @@ export class FormComponent implements OnInit {
   ngOnInit() {
   }
 
+  public process() {
+    console.log(this.newItem);
+  }
+
 }
