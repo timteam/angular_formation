@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PrestaState } from '../../../shared/enums/presta-state.enum';
 import { Prestation } from '../../../shared/models/mprestation';
 
@@ -16,16 +16,24 @@ export class FormReactiveComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder
-    ) { }
+  ) { }
 
   ngOnInit() {
-  this.createForm();
+    this.createForm();
   }
 
   private createForm(): void {
     this.form = this.fb.group({
-      type_presta: [this.initPrestation.type_presta],
-      type_client: [this.initPrestation.type_client],
+      type_presta:
+        [
+          this.initPrestation.type_presta,
+          Validators.compose([Validators.required, Validators.minLength(4)])
+        ],
+      type_client:
+      [
+        this.initPrestation.type_client,
+        Validators.compose([Validators.required, Validators.minLength(4)])
+      ],
       nb_jours: [this.initPrestation.nb_jours],
       taux_tva: [this.initPrestation.taux_tva],
       tjm_ht: [this.initPrestation.tjm_ht],
@@ -36,6 +44,10 @@ export class FormReactiveComponent implements OnInit {
   public process() {
     const item = new Prestation(this.form.value);
     this.nItem.emit(item);
+  }
+
+  public isError(fieldName: string): boolean {
+    return this.form.get(fieldName).invalid && this.form.get(fieldName).touched;
   }
 
 }
