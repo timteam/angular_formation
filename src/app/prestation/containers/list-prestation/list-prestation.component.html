@@ -3,3 +3,6 @@
     <app-prestation [presta]="item"></app-prestation>
   </ng-container>
 </app-table>
+<div *ngIf="message$ | async; let message">
+  {{message}}
+</div>

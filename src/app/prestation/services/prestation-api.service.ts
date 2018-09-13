@@ -3,7 +3,7 @@ import { Prestation } from '../../shared/models/mprestation';
 import { fakeCollection } from './fake-collection';
 import { PrestaState } from '../../shared/enums/presta-state.enum';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -13,6 +13,8 @@ export class PrestationApiService {
 
   private _collection$: Observable<Prestation[]>;
   private itemsCollection: AngularFirestoreCollection<Prestation>;
+  public message$: Subject<string> = new Subject();
+
   constructor(
     private afs: AngularFirestore
   ) {
@@ -52,6 +54,12 @@ export class PrestationApiService {
       presta.state = option;
     }
     return this.itemsCollection.doc(item.id).update(presta).catch((e) => {
+      console.log(e);
+    });
+  }
+
+  remove(item: Prestation): Promise<any> {
+    return this.itemsCollection.doc(item.id).delete().catch((e) => {
       console.log(e);
     });
   }

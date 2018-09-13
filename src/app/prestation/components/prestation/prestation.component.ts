@@ -11,6 +11,7 @@ import { PrestationApiService } from '../../services/prestation-api.service';
 export class PrestationComponent implements OnInit {
   @Input() presta: Prestation;
   public states = Object.values(PrestaState); // transform object to array
+  public res;
   constructor(
     private prestationApiService: PrestationApiService
   ) { }
@@ -22,6 +23,12 @@ export class PrestationComponent implements OnInit {
     const state = e.target.value;
     this.prestationApiService.update(this.presta, state).then(() => {
       this.presta.state = state;
+    });
+  }
+
+  public remove(): void {
+    this.prestationApiService.remove(this.presta).then((data) => {
+    this.prestationApiService.message$.next('Bravo Toto');
     });
   }
 
