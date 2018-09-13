@@ -1,33 +1,33 @@
 <form #form="ngForm" (ngSubmit)="process()">
     <div class="form-group">
       <label for="typePresta">Type de prestation</label>
-      <input [(ngModel)]="newItem.type_presta" type="text" class="form-control" id="typePresta" [ngModelOptions]="{standalone: true}" required minlength="4">
-      {{newItem.type_presta}}
+      <input [(ngModel)]="newItem.type_presta" #nom="ngModel" type="text" class="form-control" name="typePresta" id="typePresta" required minlength="4">
+      <div class="alert alert-danger" *ngIf="nom.invalid && nom.touched">champ invalide</div>
     </div>
     <div class="form-group">
       <label for="client">Client</label>
-      <input [(ngModel)]="newItem.type_client" type="text" class="form-control" [ngModelOptions]="{standalone: true}" id="client">
+      <input [(ngModel)]="newItem.type_client" type="text" class="form-control" name="client" id="client">
     </div>
     <div class="form-group">
       <label for="nbj">Nombre de jours</label>
-      <input [(ngModel)]="newItem.nb_jours" type="text" class="form-control" [ngModelOptions]="{standalone: true}" id="nbj">
+      <input [(ngModel)]="newItem.nb_jours" type="text" class="form-control" name="nbj" id="nbj">
     </div>
     <div class="form-group">
       <label for="tjm">Tjm HT</label>
-      <input [(ngModel)]="newItem.tjm_ht" type="text" class="form-control" [ngModelOptions]="{standalone: true}" id="tjm">
+      <input [(ngModel)]="newItem.tjm_ht" type="text" class="form-control" name="tjm" id="tjm">
     </div>
     <div class="form-group">
       <label for="tva">Taux TVA</label>
-      <input [(ngModel)]="newItem.taux_tva" type="text" class="form-control" [ngModelOptions]="{standalone: true}" id="tva">
+      <input [(ngModel)]="newItem.taux_tva" type="text" class="form-control" name="tva" id="tva">
     </div>
     <div class="form-group">
       <label for="state">Statut</label>
-      <select [(ngModel)]="newItem.state" class="form-control" id="state" [ngModelOptions]="{standalone: true}">
+      <select [(ngModel)]="newItem.state" class="form-control" name="state" id="state">
         <option [value]="state" *ngFor="let state of states">
           {{state}}
         </option>
       </select>
     </div>
-
     <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
+
   </form>

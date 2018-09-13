@@ -1,0 +1,32 @@
+<form [formGroup]="form" (ngSubmit)="process()">
+    <div class="form-group">
+      <label for="type_presta">Type de prestation</label>
+      <input type="text" class="form-control" id="type_presta" formControlName="type_presta">
+      <div class="alert alert-danger" *ngIf="">champ invalide</div>
+    </div>
+    <div class="form-group">
+      <label for="type_client">Client</label>
+      <input type="text" class="form-control" id="type_client" formControlName="type_client">
+    </div>
+    <div class="form-group">
+      <label for="nb_jours">Nombre de jours</label>
+      <input type="text" class="form-control" id="nb_jours" formControlName="nb_jours">
+    </div>
+    <div class="form-group">
+      <label for="tjm_ht">Tjm HT</label>
+      <input type="text" class="form-control" id="tjm_ht" formControlName="tjm_ht">
+    </div>
+    <div class="form-group">
+      <label for="taux_tva">Taux TVA</label>
+      <input type="text" class="form-control" id="taux_tva" formControlName="taux_tva">
+    </div>
+    <div class="form-group">
+      <label for="state">Statut</label>
+      <select class="form-control" id="state" formControlName="state">
+        <option [value]="state" *ngFor="let state of states">
+          {{state}}
+        </option>
+      </select>
+    </div>
+    <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
+  </form>

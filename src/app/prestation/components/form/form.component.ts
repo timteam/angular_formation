@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PrestaState } from '../../../shared/enums/presta-state.enum';
 import { Prestation } from '../../../shared/models/mprestation';
 
@@ -10,13 +10,15 @@ import { Prestation } from '../../../shared/models/mprestation';
 export class FormComponent implements OnInit {
   public states: PrestaState[] = Object.values(PrestaState);
   public newItem: Prestation = new Prestation();
+  @Output() nItem: EventEmitter<Prestation> = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
   }
 
   public process() {
-    console.log(this.newItem);
+    // console.log(this.newItem);
+    this.nItem.emit(this.newItem);
   }
 
 }

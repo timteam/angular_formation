@@ -1,5 +1,5 @@
 <app-table [headers]="prestaHeaders" [lastRow]='addPresta'>
-  <div class="table-body" *ngFor="let item of collection">
+  <ng-container class="table-body" *ngFor="let item of collection">
     <app-prestation [presta]="item"></app-prestation>
-  </div>
+  </ng-container>
 </app-table>

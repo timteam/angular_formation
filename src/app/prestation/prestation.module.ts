@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ListPrestationComponent } from './containers/list-prestation/list-prestation.component';
 import { PrestationRoutingModule } from './prestation-routing.module';
@@ -8,6 +8,7 @@ import { PrestationComponent } from './components/prestation/prestation.componen
 import { SharedModule } from '../shared/shared.module';
 import { AddPrestationComponent } from './containers/add-prestation/add-prestation.component';
 import { FormComponent } from './components/form/form.component';
+import { FormReactiveComponent } from './components/form-reactive/form-reactive.component';
 
 
 @NgModule({
@@ -15,8 +16,9 @@ import { FormComponent } from './components/form/form.component';
     CommonModule,
     PrestationRoutingModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  declarations: [ListPrestationComponent, PrestationComponent, AddPrestationComponent, FormComponent]
+  declarations: [ListPrestationComponent, PrestationComponent, AddPrestationComponent, FormComponent, FormReactiveComponent]
 })
 export class PrestationModule { }

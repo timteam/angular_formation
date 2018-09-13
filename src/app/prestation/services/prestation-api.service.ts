@@ -8,7 +8,6 @@ import { PrestaState } from '../../shared/enums/presta-state.enum';
 })
 export class PrestationApiService {
 
-
   private _collection: Prestation[];
 
   constructor() {
@@ -28,7 +27,7 @@ export class PrestationApiService {
   // get presta by id
 
   // update presta
-  update(presta: Prestation, state?: PrestaState): any {
+  public update(presta: Prestation, state?: PrestaState): any {
     const prestaToUpdate = {...presta};
     // appel Api
   }
@@ -36,4 +35,7 @@ export class PrestationApiService {
   // del presta
 
   // add presta
+  public add(presta: Prestation): void {
+    this.collection.push(presta);
+  }
 }
