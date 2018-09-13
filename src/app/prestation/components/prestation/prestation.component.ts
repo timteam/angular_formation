@@ -20,8 +20,9 @@ export class PrestationComponent implements OnInit {
 
   public update(e): void {
     const state = e.target.value;
-    this.prestationApiService.update(this.presta, state);
-    this.presta.state = state;
+    this.prestationApiService.update(this.presta, state).then(() => {
+      this.presta.state = state;
+    });
   }
 
 }

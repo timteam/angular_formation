@@ -42,8 +42,7 @@ export class FormReactiveComponent implements OnInit {
   }
 
   public process() {
-    const item = new Prestation(this.form.value);
-    this.nItem.emit(item);
+    this.nItem.emit(this.form.value);
   }
 
   public isError(fieldName: string): boolean {
