@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PrestationApiService } from '../../services/prestation-api.service';
 import { Prestation } from '../../../shared/models/mprestation';
 import { Observable, Subscription, Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-prestation',
@@ -15,7 +16,8 @@ export class ListPrestationComponent implements OnInit, OnDestroy {
   public message$: Subject<string>;
   public addPresta = {libelle: 'Add prestation', route: '/prestations/add'};
   constructor(
-    private prestationApiService: PrestationApiService
+    private prestationApiService: PrestationApiService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -39,6 +41,10 @@ export class ListPrestationComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     // this.sub.unsubscribe();
+  }
+
+  edit(presta: Prestation): void {
+    this.router.navigate(['prestations/edit', presta.id]);
   }
 
 }

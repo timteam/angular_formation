@@ -1,6 +1,6 @@
 <app-table [headers]="prestaHeaders" [lastRow]='addPresta'>
   <ng-container class="table-body" *ngFor="let item of collection$ | async">
-    <app-prestation [presta]="item"></app-prestation>
+    <app-prestation (click)="edit(item)" [presta]="item"></app-prestation>
   </ng-container>
 </app-table>
 <div *ngIf="message$ | async; let message">

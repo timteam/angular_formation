@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 // External libraries
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap/';
@@ -32,7 +33,8 @@ registerLocaleData(localeFr, 'fr');
     AppRoutingModule,
     PageNotFoundModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    HttpClientModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr' }, CurrencyPipe],
   bootstrap: [AppComponent]

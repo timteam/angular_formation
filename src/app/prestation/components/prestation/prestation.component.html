@@ -4,9 +4,8 @@
 <td>{{ presta.tjm_ht | localCurrency }}</td>
 <td>{{ presta | total | currency: 'EUR' }}</td>
 <td>{{ presta | total: presta.taux_tva | currency: 'EUR' }}</td>
-<!-- <td>{{ presta.state }}</td> -->
-<td [appState]="presta.state">
-  <select (change)="update($event)">
+<td [appState]="presta.state" (click)="$event.stopPropagation()">
+  <select (change)="update($event)" >
     <option [value]="presta.state">
       {{presta.state}}
     </option>
@@ -18,5 +17,5 @@
   </select>
 </td>
 <td>
-  <button (click)="remove()">X</button>
+  <button (click)="$event.stopPropagation(); remove()" >X</button>
 </td>
